@@ -19,8 +19,14 @@ $app->register(
 // Our web handlers
 $app->get('/', function() use($app) {
     $app['monolog']->addDebug('logging output.');
-    
+
     return $app['twig']->render('index.twig');
+});
+
+$app->get('/test', function() use($app) {
+    $app['monolog']->addDebug('Test route');
+
+    return 'Test route saccuffully working';
 });
 
 $app->run();
